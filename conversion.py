@@ -16,7 +16,7 @@ def process_files(input_folder, output_folder):
             with open(input_file_path, 'r') as input_file, open(output_file_path, 'w', newline='') as output_file:
                 
                 reader = csv.reader(input_file)
-                writer = csv.writer(output_file)
+                # writer = open(output_file)
 
                 for row in reader:
                     x = int(row[0])
@@ -24,9 +24,13 @@ def process_files(input_folder, output_folder):
                     category = row[5]
                     width = int(row[2])
                     height = int(row[3])
-                    reordered_row = [category, (x+width/2)/image_width, (y+height/2)/image_height, width/image_width, height/image_height]
-                    writer.writerow(reordered_row)
+                    new_x = str(round((x+width/2)/image_width, 5))
+                    new_y = str(round((y+height/2)/image_height, 5))
+                    new_width = str(round(width/image_width, 5))
+                    new_height = str(round(height/image_height, 5))
+                    reordered_row = category + ' ' + new_x + ' ' + new_y + ' ' + new_width + ' ' + new_height
+                    output_file.write(reordered_row + '\n')
 
-input_folder = 'raw_annotations/val'
-output_folder = 'labels/val'
+input_folder = 'datasets/raw_annotations/train'
+output_folder = 'datasets/labels/train'
 process_files(input_folder, output_folder)
