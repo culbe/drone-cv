@@ -27,6 +27,6 @@ def process_files(input_folder, output_folder):
                     reordered_row = [category, (x+width/2)/image_width, (y+height/2)/image_height, width/image_width, height/image_height]
                     writer.writerow(reordered_row)
 
-input_folder = 'raw_annotations'
-output_folder = 'annotations'
+input_folder = 'raw_annotations/val'
+output_folder = 'labels/val'
 process_files(input_folder, output_folder)
