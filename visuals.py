@@ -94,8 +94,7 @@ def draw_bounding_boxes_label(image_path, label_path):
     plt.axis('off')
     plt.show()
 
-
-# image_directory = 'datasets/images/val'
-# label_directory = 'datasets/labels/val'
-# image_name = '0000001_02999_d_0000005.jpg'
-# draw_bounding(image_name, image_directory, label_directory)
+image_directory = 'datasets/images/val'
+label_directory = 'datasets/labels/val'
+image_name = '0000001_02999_d_0000005.jpg'
+draw_bounding_boxes_from_file(image_name, image_directory, label_directory)
