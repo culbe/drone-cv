@@ -1,4 +1,6 @@
-__pycache/
+__pycache__/
 .ipynb_checkpoints/
 runs/
 yolov8n.pt
+datasets/labels/train.cache
+datasets/labels/val.cache
