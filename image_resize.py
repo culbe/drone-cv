@@ -12,11 +12,11 @@ def process_files(input_folder, output_folder):
         os.makedirs(output_folder)
 
     for filename in os.listdir(input_folder):        
-        if filename.endswith('.jpg'):  
+        if filename.endswith('.jpg'):  #check that its an image
             input_file_path = os.path.join(input_folder, filename)
             output_file_path = os.path.join(output_folder, filename)
 
-            output_image = Image.open(input_file_path).resize((640,640))
+            output_image = Image.open(input_file_path).resize((640,640))#do the resize
 
             output_image.save(output_file_path)
 

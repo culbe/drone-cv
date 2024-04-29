@@ -23,16 +23,17 @@ def draw_bounding_boxes_from_file(image_name, image_dir, label_dir):
 
     if os.path.exists(label_path):
         with open(label_path, 'r') as file:
-            for line in file:
+            for line in file: #for each label
                 parts = line.split()
                 class_id = parts[0]
                 cx, cy, bw, bh = map(float, parts[1:])
 
-                x = (cx - bw / 2) * image.width
+                x = (cx - bw / 2) * image.width #undo the noramlization
                 y = (cy - bh / 2) * image.height
                 width = bw * image.width
                 height = bh * image.height
 
+                #add the bounding box to the plot
                 rect = patches.Rectangle((x, y), width, height, linewidth=1, edgecolor='r', facecolor='none')
                 ax.add_patch(rect)
                 plt.text(x, y, class_id, color='white', fontsize=8, bbox=dict(facecolor='red', alpha=0.5))
