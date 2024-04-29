@@ -41,6 +41,9 @@ The yolov8n.pt file specifies the pretrained weights and also implictly the mode
 The yaml file is our own config file specifying the training and validation dataset.
 
 
+The trainingResults folder was also too large to submit because of the weights files. It contains lots of performance metrics and, most importantly the weights files that encapture all the training done. It can also be seen in the github. 
+
+
 We used jupyter notebook as a sort of stratch paper - visually evaulating the performance of the model and running some of the methods contained in the other files. We did not include this temporary stratch work, but an examples.ipynb file is included as a reference for how to run and manual evaluate the model.
 
 Much more information on our processes can be found in the final report.
