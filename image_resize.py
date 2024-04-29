@@ -3,8 +3,10 @@ import csv
 import numpy as np
 from PIL import Image
 
+
+#Method to size all images to 640x640
+#I think the model was already doing this automatically, but doing it beforehand saves training time
 def process_files(input_folder, output_folder):
-   
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)

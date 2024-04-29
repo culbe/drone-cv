@@ -4,6 +4,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib import patches
 
+#Contains several methods for visualing the bounding boxes on the images
+#Each method takes different forms of the bound box information
+
 def draw_bounding_boxes_from_file(image_name, image_dir, label_dir):
     # classes = {
     #     "0": "undef", "1": "pedestrian", "2": "people", "3": "bicycle", "4": "car", 
