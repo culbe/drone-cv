@@ -1,15 +1,30 @@
 import os
 import csv
+import numpy as np
+from PIL import Image
 
-def process_files(input_folder, output_folder):
-    image_width = 1920
-    image_height = 1080
+def process_files(input_folder, output_folder, images_folder):
+   
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    for filename in os.listdir(input_folder):
+    for filename in os.listdir(input_folder):        
         if filename.endswith('.txt'):  
+            image_file = filename.split('.')[0] +".jpg"
+            image_file_path = os.path.join(images_folder, image_file)
+
+            try:
+                img_dim = np.asarray(Image.open(image_file_path)).shape
+            except:
+                #no matching image
+                print("missing image " + image_file_path)
+                continue
+            # print(img_dim)
+            image_width = img_dim[1]
+            image_height = img_dim[0]
+            # print("width: " + str(image_width) + " x height: " + str(image_height))
+
             input_file_path = os.path.join(input_folder, filename)
             output_file_path = os.path.join(output_folder, filename)
 
@@ -33,4 +48,5 @@ def process_files(input_folder, output_folder):
 
 input_folder = 'datasets/raw_annotations/train'
 output_folder = 'datasets/labels/train'
-process_files(input_folder, output_folder)
+image_folder = 'datasets/images/train'
+process_files(input_folder, output_folder, image_folder)
